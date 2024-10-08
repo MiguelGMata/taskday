@@ -14,8 +14,9 @@ app.use(express.json());
 
 //Routes
 app.get('/', (req, res) => {
-    res.json({ msm: 'Hello in api' });
+    res.send('<h1>Hello in api</h1>');
 })
+
 app.use('/api', apiRoutes);
 
 // Servir archivos estáticos de la aplicación React
