@@ -1,4 +1,20 @@
 require('dotenv').config();
+const { Sequelize } = require('sequelize');
+
+const sequelize = new Sequelize(
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASSWORD,
+    {
+        host: process.env.DB_HOST,
+        dialect: 'mysql',
+        dialectModule: require('mysql2')
+    }
+);
+
+sequelize.authenticate()
+    .then(() => console.log('Database connected!'))
+    .catch(err => console.log('Error: ' + err));
 
 module.exports = {
     "development": {
@@ -21,7 +37,7 @@ module.exports = {
         "database": process.env.DB_NAME,
         "host": process.env.DB_HOST,
         "dialect": "mysql",
-        "dialectModule": "mysql2",
+        "dialectModule": require('mysql2'),
         logging: console.log,
     }
 }
