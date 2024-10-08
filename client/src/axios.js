@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-    baseURL: process.env.NODE_ENV === 'production' ? 'https://taskday-4b5229bdc00d.herokuapp.com/api' : 'http://localhost:4000/api',
+    baseURL: process.env.NODE_ENV === 'production' ? 'https://taskday-kappa.vercel.app/api' : 'http://localhost:4000/api',
     headers: {
         'Content-Type': 'application/json'
     }
