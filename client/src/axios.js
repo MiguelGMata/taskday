@@ -10,6 +10,5 @@ const apiClient = axios.create({
 
 export const getDataUsers = async () => {
     const response = await apiClient.get('/users');
-    console.log(response, '<--')
     return response.data;
 }
