@@ -3,6 +3,7 @@ require('express-async-errors');
 const path = require('path');
 const cors = require('cors');
 const apiRoutes = require('./routes/apiRoutes');
+const { notFoundHandler, errorLogger, errorHandler } = require('./middlewares');
 require('dotenv').config();
 
 const app = express();
@@ -30,11 +31,9 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 //manejo de errores
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Something broke!');
-});
-
+app.use('*', notFoundHandler);
+app.use(errorLogger);
+app.use(errorHandler);
 //Config port
 
 app.listen(PORT, () => {
