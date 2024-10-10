@@ -1,4 +1,5 @@
 import React from 'react';
+import Profile from '../../organisms/profile/Profile';
 import './profileScreen.css';
 
 const ProfileScreen = () => {
@@ -6,7 +7,7 @@ const ProfileScreen = () => {
     return (
         <main className="main-profile">
             <section className="section-profile">
-                <h1>ProfileScreen</h1>
+                <Profile />
             </section>
         </main>
     )

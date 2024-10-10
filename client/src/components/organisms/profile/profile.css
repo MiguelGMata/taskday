@@ -1,0 +1,66 @@
+.profile-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+.profile-block:nth-child(1) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+    background: rgb(0, 32, 170);
+    background: linear-gradient(90deg, rgba(0, 32, 170, 1) 0%, rgba(23, 35, 255, 1) 28%, rgba(23, 35, 255, 1) 60%, rgba(0, 32, 170, 1) 100%);
+
+}
+
+.profile-block:nth-child(2) {
+    width: 50%;
+}
+
+.profile-block:nth-child(3) {
+    width: 100%;
+    display: flex;
+    text-align: left !important;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.label-profile {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    display: block;
+    color: var(--blue);
+}
+
+.title-bi {
+    margin: 0%;
+    padding: 0%;
+}
+
+.profile-btn-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.profile-btn-circle .title-secondary {
+    font-size: 2rem;
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

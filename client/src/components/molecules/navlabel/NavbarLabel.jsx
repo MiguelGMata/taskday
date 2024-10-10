@@ -57,14 +57,14 @@ const NavbarLabel = ({ isOpen, activeItem, onClick }) => {
                 </li>
                 <div className={activeItem === 'profile' ? 'active profile-menu' : 'profile-menu'} >
                     <div className="navbar-btn-circle">
-                        <Title className="title-secondary" to="/profile">
+                        <Title className="title-secondary">
                             {userProfile.firstName ? userProfile.firstName[0] : ''}{userProfile.lastName ? userProfile.lastName[0] : ''}
                         </Title>
                     </div>
                     <ul className="submenu">
                         <div className='navbar-btn-submenu'>
                             <div className="navbar-btn-circle-B">
-                                <Title className="title-secondary" to="/profile">
+                                <Title className="title-secondary">
                                     {userProfile.firstName ? userProfile.firstName[0] : ''}{userProfile.lastName ? userProfile.lastName[0] : ''}
                                 </Title>
                             </div>
