@@ -4,7 +4,6 @@
     flex-direction: column;
     width: 100%;
     position: absolute;
-    top: 50px;
     left: 0;
     right: 0;
     max-height: 0;
@@ -51,11 +50,70 @@
     cursor: pointer;
 }
 
+/* Estilos submenu */
+.navbar-btn-circle,
+.navbar-btn-circle-B {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.title-secondary {
+    color: white;
+    text-decoration: none;
+}
+
+/* Ocultar submenú por defecto */
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: var(--white);
+    list-style: none;
+    padding: 10px;
+    right: 0;
+    height: 60vh;
+    gap: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn-submenu {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+}
+
+.navbar-label-content .submenu li {
+    margin: 20px;
+
+}
+
+.submenu a {
+    color: var(--white);
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+}
+
+/* Mostrar submenú cuando se pasa el cursor sobre el contenedor */
+
+
+.profile-menu:hover .submenu {
+    display: block;
+}
+
+
 @media (min-width: 768px) {
     .navbar-label {
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;
+        justify-content: space-between;
         padding: 10px 20px;
         position: static;
         max-height: none;
@@ -63,6 +121,9 @@
 
     .navbar-label-content {
         display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
     }
 
     .navbar-label-content li {
@@ -79,17 +140,41 @@
         border-radius: 5px;
     }
 
+    .profile-menu {
+        margin-left: auto;
+    }
+
+
 }
 
 @media (max-width: 767px) {
-    .navbar-label-content li a {
-        padding: 20px;
-    }
+
 
     .navbar-label {
         height: 100vh;
         justify-content: center;
         background-color: var(--white);
+        top: -200px;
+    }
+
+    .submenu {
+        display: block;
+        position: absolute;
+        background-color: var(--white);
+        list-style: none;
+        padding: 10px;
+        left: 0;
+        height: 60vh;
+        gap: 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-label-content li a {
+        padding: 20px;
+    }
+
+    .navbar-btn-circle {
+        display: none;
     }
 
 }

@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import HomeScreen from "../pages/home/HomeScreen";
 import SignInScreen from "../pages/signIn/SignInScreen";
 import SignUpScreen from "../pages/signUp/SignUpScreen";
+import TaskScreen from "../pages/task/TaskScreen";
 
 const AppRouter = () => {
 
@@ -11,6 +12,7 @@ const AppRouter = () => {
             <Route path="/" element={<HomeScreen />} />
             <Route path="/signIn" element={<SignInScreen />} />
             <Route path="/signUp" element={<SignUpScreen />} />
+            <Route path="/task" element={<TaskScreen />} />
         </Routes>
     )
 }

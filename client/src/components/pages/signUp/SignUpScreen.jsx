@@ -1,7 +1,7 @@
 import React from 'react';
 import SignUp from '../../organisms/signUp/SignUp';
 import Image from '../../atoms/image/Image';
-import './signUpScreen.css'
+import './signUpScreen.css';
 
 const SignUpScreen = () => {
 
