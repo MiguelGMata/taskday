@@ -5,15 +5,18 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      // define association here
+      this.hasMany(models.Task, {
+        foreignKey: "userId",
+      });
     }
   }
-  User.init({
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING
-  }, {
+  User.init(
+    {
+      firstName: DataTypes.STRING,
+      lastName: DataTypes.STRING,
+      email: DataTypes.STRING,
+      password: DataTypes.STRING
+    }, {
     sequelize,
     modelName: 'User',
   });
