@@ -3,42 +3,41 @@
     font-weight: bold;
     font-size: 1.2rem;
     color: var(--black);
+    text-align: center;
 }
 
 
 .title-primary {
-    font-size: 1.5rem;
-    color: var(--fuchsia);
-    text-align: center;
+    font-size: 1.2rem;
+    color: var(--white);
+    margin: 20px;
+    margin-top: 50px;
+
 }
 
 .title-secondary {
     font-size: 1rem;
     color: var(--green);
-    text-align: center;
 }
 
 
 .title-bi {
     font-size: 1.2rem;
     color: var(--blue);
-    padding: 50px;
-}
-
-.title-form {
-    font-size: 24px;
-    color: var(--black);
-    text-align: center;
-    margin: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 
 @media (min-width: 768px) {
-    .title-header {
-        font-size: 3rem
+    .title-primary {
+        font-size: 2rem;
+        margin-top: 60px;
+
     }
 
-    .title-form {
-        margin: 60px;
+    .title-bi {
+        padding: 30px;
+        margin: 20px;
     }
 }

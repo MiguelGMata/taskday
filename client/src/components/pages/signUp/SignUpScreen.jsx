@@ -1,5 +1,6 @@
 import React from 'react';
 import SignUp from '../../organisms/signUp/SignUp';
+import Image from '../../atoms/image/Image';
 import './signUpScreen.css'
 
 const SignUpScreen = () => {
@@ -10,6 +11,10 @@ const SignUpScreen = () => {
                 <SignUp />
 
             </section>
+            <div className="images-signUp">
+                <Image image="/images/connexion-1.png" className="image-signIn left-image" />
+                <Image image="/images/connexion-2.png" className="image-signIn right-image" />
+            </div>
         </main>
     )
 }

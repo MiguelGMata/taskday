@@ -62,10 +62,7 @@ const SignUp = () => {
                 closeModal={closeModal}
             />
 
-            <div className="images-signIn">
-                <Image image="/images/connexion-1.png" className="image-signIn" />
-                <Image image="/images/connexion-2.png" className="image-signIn" />
-            </div>
+
         </div>
     );
 };

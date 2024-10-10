@@ -5,8 +5,8 @@
     align-items: center;
     background-color: var(--white);
     padding: 20px;
+    margin-top: 50px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    height: 50vh;
 }
 
 .form {
@@ -44,6 +44,7 @@
 @media (min-width: 768px) {
     .login-screen {
         padding-top: 40px;
+        max-width: 400px;
     }
 
     .form {

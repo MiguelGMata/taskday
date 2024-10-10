@@ -1,4 +1,6 @@
 .signIn-content {
+    display: flex;
+    justify-content: center;
     width: 100%;
 }
 
@@ -7,9 +9,4 @@
     font-size: 14px;
     text-align: center;
     margin-top: 6%;
-}
-
-.images-signIn {
-    display: flex;
-    justify-content: space-between;
 }
