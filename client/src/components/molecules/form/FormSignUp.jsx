@@ -26,7 +26,7 @@ const FormSignUp = ({
     return (
         <form className="login-screen" onSubmit={handleSubmit}>
             <Image image="/images/logo.png" width='10%' height='10%' className='image-login' />
-            <Title className="title-bi">Inscrivez-vous pour continuer</Title>
+            <Title className="title-signIn">Inscrivez-vous pour continuer</Title>
             {error && <Span className="span-login">{error}</Span>}
             {showModal && <MessageModal message={successMessage} onClose={closeModal} />}
             <div className="form">

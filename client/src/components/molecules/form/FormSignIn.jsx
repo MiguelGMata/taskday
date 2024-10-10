@@ -11,7 +11,7 @@ const FormSignIn = ({ email, setEmail, password, setPassword, handleSubmit, erro
     return (
         <form className="login-screen" onSubmit={handleSubmit}>
             <Image image="/images/logo.png" width='10%' height='10%' className='image-login' />
-            <Title className="title-bi">Démarrer la session pour continuer</Title>
+            <Title className="title-signIn">Démarrer la session pour continuer</Title>
             {errorMessage && <Span className="span-login">{errorMessage}</Span>}
             <div className="form">
                 <Label className="label-primary" htmlFor="email" text="Email" />

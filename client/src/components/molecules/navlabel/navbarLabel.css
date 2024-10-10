@@ -12,7 +12,7 @@
 }
 
 .navbar-label.open {
-    max-height: 900px;
+    max-height: 1000px;
 }
 
 .navbar-label-content li {
@@ -144,6 +144,9 @@
         margin-left: auto;
     }
 
+    .submenu {
+        height: 40vh;
+    }
 
 }
 
@@ -151,7 +154,7 @@
 
 
     .navbar-label {
-        height: 100vh;
+        height: 130vh;
         justify-content: center;
         background-color: var(--white);
         top: -200px;
@@ -164,7 +167,7 @@
         list-style: none;
         padding: 10px;
         left: 0;
-        height: 60vh;
+        height: 70vh;
         gap: 20px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
