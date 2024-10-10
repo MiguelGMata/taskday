@@ -1,0 +1,44 @@
+.title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--black);
+}
+
+
+.title-primary {
+    font-size: 1.5rem;
+    color: var(--fuchsia);
+    text-align: center;
+}
+
+.title-secondary {
+    font-size: 1rem;
+    color: var(--green);
+    text-align: center;
+}
+
+
+.title-bi {
+    font-size: 1.2rem;
+    color: var(--blue);
+    padding: 50px;
+}
+
+.title-form {
+    font-size: 24px;
+    color: var(--black);
+    text-align: center;
+    margin: 20px;
+}
+
+
+@media (min-width: 768px) {
+    .title-header {
+        font-size: 3rem
+    }
+
+    .title-form {
+        margin: 60px;
+    }
+}

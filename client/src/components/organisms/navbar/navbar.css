@@ -1,0 +1,18 @@
+.navbar-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 60px;
+    padding: 10px;
+    z-index: 1000;
+    position: fixed;
+    background-color: var(--white);
+}
+
+
+
+@media (min-width: 768px) {}
+
+@media (max-width: 767px) {}

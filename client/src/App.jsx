@@ -1,30 +1,20 @@
-import { useState, useEffect } from 'react'
-import { getDataUsers } from './axios';
-import './App.css'
+import React from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'; ``
+import AppRouter from './components/routes/AppRouter';
+import Navbar from './components/organisms/navbar/Navbar';
+import './components/styles/global.css'
 
 const App = () => {
-  const [users, setUsers] = useState([])
-
-  useEffect(() => {
-    const fetchUsers = async () => {
-      const dataUsers = await getDataUsers();
-      setUsers(dataUsers)
-    }
-    fetchUsers();
-  }, [])
 
   return (
-    <>
-      <div className='App'>
-        {users.map((user) =>
-          <ul key={user.id}>
-            <li>{user.firstName} {user.lastName}</li>
-            <li>{user.email}</li>
-          </ul>
-        )}
+    <Router>
+      <div className="app">
+        <Navbar />
+        <AppRouter />
       </div>
-    </>
+    </Router>
   )
+
 }
 
 export default App

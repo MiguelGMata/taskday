@@ -1,0 +1,13 @@
+.select-input {
+    width: 100%;
+    font-size: 16px;
+  }
+  
+
+.select{
+    padding: 10px;
+    border: 1px solid #ef5a8d;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}

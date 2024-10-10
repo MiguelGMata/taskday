@@ -1,0 +1,15 @@
+.signIn-content {
+    width: 100%;
+}
+
+.signIn-content p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 6%;
+}
+
+.images-signIn {
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,26 @@
+.input {
+  padding: 10px;
+  border: 1px solid var(--black);
+  border-radius: 3px;
+  transition: border-color 0.3s;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.input:focus {
+  border-color: var(--blue);
+  outline: none;
+}
+
+.input-search {
+  margin: 5px;
+  padding: 15px;
+  border-radius: 50px;
+  min-width: 70%;
+}
+
+@media(min-width: 768px) {
+  .input-search {
+    font-size: 16px;
+  }
+}

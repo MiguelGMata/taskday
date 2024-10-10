@@ -1,0 +1,14 @@
+.video-back{
+    width: 100%;
+    position: cover;
+    border-radius: 30px;
+
+}
+
+@media (min-width: 1024px){
+    .video-back{
+        width: 70%;
+        position: cover;
+    }
+
+}

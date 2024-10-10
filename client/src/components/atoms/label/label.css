@@ -1,0 +1,20 @@
+.label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: var(--green);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.label-primary {
+  color: var(--black);
+}
+
+@media (min-width: 768px) {
+  .label {
+    font-size: 16px;
+  }
+
+  .label-primary {
+    color: var(--blue);
+  }
+}
