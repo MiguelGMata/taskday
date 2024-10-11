@@ -1,20 +1,43 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { profileUser } from '../../services/userServices';
+import { getTasksByUser, deleteTask } from '../../services/taskServices';
+import { FaTrashAlt } from 'react-icons/fa';
 import Title from "../../atoms/title/Title";
 import Card from "../../atoms/card/Card";
 import Label from '../../atoms/label/Label';
 import Input from '../../atoms/input/Input';
+import Button from '../../atoms/button/Button';
 import './profile.css';
+
 
 const Profile = () => {
     const [userProfile, setUserProfile] = useState([]);
+    const [taskByUser, setTaskByUser] = useState([]);
     const navigate = useNavigate();
+
+    const handleDelete = async (id) => {
+        try {
+            await deleteTask(id);
+            const updatedTasks = taskByUser.filter(task => task.id !== id);
+            setTaskByUser(updatedTasks);
+        } catch (error) {
+            console.log("Erreur delete: ", error);
+        }
+    }
 
     useEffect(() => {
         const fetchProfile = async () => {
-            const response = await profileUser();
-            setUserProfile(response);
+            try {
+                const userData = await profileUser();
+                setUserProfile(userData);
+
+                const taskData = await getTasksByUser();
+                const filtered = taskData.filter((list) => list.userId === userData.id)
+                setTaskByUser(filtered)
+            } catch (error) {
+                console.log('Erreur a charger :', error)
+            }
         }
         fetchProfile();
     }, [])
@@ -69,9 +92,20 @@ const Profile = () => {
 
                 <Card className="profile-card">
                     <Title className="title">Vous tableaux</Title>
-
-                    <Card>Vous n'avez pas de tableaux ajoutés !</Card>
-
+                    {taskByUser.length > 0 ?
+                        taskByUser.map((task) =>
+                            <ul key={task.id}>
+                                <Card>
+                                    <li>{task.title}</li>
+                                    <Button className="button-card" text={<FaTrashAlt onClick={() => handleDelete(task.id)} />} />
+                                </Card>
+                            </ul>
+                        )
+                        :
+                        <Card>
+                            Vous n'avez pas de tableaux ajoutés !
+                            <Button text="Ajouter" className="button-card" onClick={() => navigate('/task')} />
+                        </Card>}
                 </Card>
             </div>
         </section>

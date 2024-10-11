@@ -13,14 +13,14 @@
   background-color: var(--grey);
 }
 
-.botton-card {
+.button-card {
   background-color: var(--blue);
   padding: 10px 15px;
   color: var(--white);
   font-size: 18px;
 }
 
-.botton-card:hover {
+.button-card:hover {
   background-color: rgb(0, 98, 255);
 }
 
