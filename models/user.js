@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.hasMany(models.Task, {
         foreignKey: "userId",
+        onDelete: 'CASCADE',
       });
     }
   }

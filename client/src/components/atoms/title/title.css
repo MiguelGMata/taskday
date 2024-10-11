@@ -35,6 +35,17 @@
     margin: 30px 0;
 }
 
+.title-list {
+    width: 100%;
+    text-align: left;
+}
+
+.title-card {
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+}
+
 @media (min-width: 768px) {
     .title-primary {
         font-size: 2rem;

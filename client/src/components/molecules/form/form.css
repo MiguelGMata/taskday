@@ -25,9 +25,10 @@
     font-size: 14px;
 }
 
-.btn-login {
-    width: 100%;
-    max-width: 100%;
+.btn-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-login:hover {

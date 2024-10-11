@@ -12,23 +12,14 @@ module.exports = {
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        primaryKey: true,
         references: {
           model: "Users",
           key: "id",
-        }
+        },
+        onDelete: 'CASCADE',
       },
       title: {
         type: Sequelize.STRING
-      },
-      description: {
-        type: Sequelize.TEXT
-      },
-      status: {
-        type: Sequelize.STRING
-      },
-      date: {
-        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,

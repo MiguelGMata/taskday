@@ -5,11 +5,12 @@
 .block-task {
     display: flex;
     justify-content: left;
-    align-items: center;
+
     position: relative;
     padding: 10px;
     padding-top: 30px;
     z-index: 10;
+    gap: 10px;
 }
 
 .menu-toggle-btn {
@@ -26,4 +27,15 @@
 
 .menu-toggle-btn:hover {
     background-color: var(--green);
+}
+
+.block-task-liste {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    position: relative;
+    padding: 10px;
+    padding-top: 80px;
+    z-index: 10;
+    gap: 20px;
 }

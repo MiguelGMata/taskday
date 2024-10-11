@@ -29,7 +29,7 @@ const FormSignIn = ({ email, setEmail, password, setPassword, handleSubmit, erro
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <div className="btn-submit">
-                    <Button className="btn-login" text="Se connecter" type="submit" />
+                    <Button className="botton-login" text="Se connecter" type="submit" />
                 </div>
                 <div className="line"></div>
             </div>

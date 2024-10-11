@@ -59,8 +59,8 @@ const FormSignUp = ({
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <p>Lors de votre enregistrement, acceptez les conditions du service TaskDay et votre politique de confidentialité.</p>
-                <div className="btn-sumit">
-                    <Button className="btn-login" text="S'inscrire" type="submit" />
+                <div className="btn-submit">
+                    <Button className="botton-login" text="S'inscrire" type="submit" />
                 </div>
                 <div className="line"></div>
             </div>

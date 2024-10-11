@@ -3,23 +3,23 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Task extends Model {
+  class List extends Model {
     static associate(models) {
-      this.belongsTo(models.User, {
-        foreignKey: "userId",
-      });
-      this.hasMany(models.List, {
+      this.belongsTo(models.Task, {
         foreignKey: "taskId",
+      });
+      this.hasMany(models.Card, {
+        foreignKey: "listId",
         onDelete: 'CASCADE',
       });
     }
   }
-  Task.init(
+  List.init(
     {
       title: DataTypes.STRING,
     }, {
     sequelize,
-    modelName: 'Task',
+    modelName: 'List',
   });
-  return Task;
+  return List;
 };
