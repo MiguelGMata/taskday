@@ -15,8 +15,9 @@
 
 .botton-card {
   background-color: var(--blue);
-  padding: 10px;
+  padding: 10px 15px;
   color: var(--white);
+  font-size: 18px;
 }
 
 .botton-card:hover {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createTask, getTaskById, updateTask } from '../../services/taskServices';
+import { FaTrashAlt, FaEdit, FaCheck, FaUndoAlt } from 'react-icons/fa';
 import Input from '../../atoms/input/Input';
 import Button from '../../atoms/button/Button';
 import './addTitle.css';
@@ -57,7 +58,7 @@ const AddTitle = ({ taskId }) => {
                 value={title}
                 onChange={handleInputChange}
             />
-            <Button text={isEditing ? "Mise à jour" : "Ajouter"} className="botton-card" />
+            <Button text={isEditing ? <FaUndoAlt /> : <FaCheck />} className="botton-card" />
         </form>
     );
 };
