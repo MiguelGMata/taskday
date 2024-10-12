@@ -4,9 +4,10 @@
   color: var(--black);
   border: none;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s;
+  width: 100%;
 }
 
 .button:hover {
@@ -17,7 +18,7 @@
   background-color: var(--blue);
   padding: 10px 15px;
   color: var(--white);
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .button-card:hover {
@@ -30,6 +31,13 @@
   background-color: var(--blue);
   color: var(--white);
   padding: 15px;
+}
+
+.button-icon {
+  width: 50px;
+  height: 40px;
+  border-radius: 50px;
+  padding: 0;
 }
 
 @media (max-width: 767px) {

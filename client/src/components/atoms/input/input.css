@@ -4,6 +4,7 @@
   border-radius: 3px;
   transition: border-color 0.3s;
   margin-bottom: 15px;
+  max-width: 350px;
   width: 100%;
 }
 

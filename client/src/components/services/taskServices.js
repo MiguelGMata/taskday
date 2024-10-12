@@ -18,6 +18,7 @@ export const createTask = async (title) => {
 export const getTasksByUser = async () => {
     try {
         const response = await axiosInstance.get('/api/tasks');
+        console.log(response)
         return response.data;
     } catch (error) {
         if (error.response && error.response.data) {
@@ -41,7 +42,7 @@ export const getTaskById = async (id) => {
     }
 };
 
-export const updateTask = async (id, title, description) => {
+export const updateTask = async (id, title) => {
     try {
         const response = await axiosInstance.put(`/api/tasks/${id}`, title);
         return response.data;

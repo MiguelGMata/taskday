@@ -20,6 +20,7 @@ const Profile = () => {
         try {
             await deleteTask(id);
             const updatedTasks = taskByUser.filter(task => task.id !== id);
+            console.log(updatedTasks, "<")
             setTaskByUser(updatedTasks);
         } catch (error) {
             console.log("Erreur delete: ", error);
@@ -66,27 +67,22 @@ const Profile = () => {
                         type="text"
                         name="firstName"
                         placeholder={userProfile.firstName}
-                        value=""
-                        onChange=""
-                        checked=""
+                        defaultValue=""
+
                     />
                     <Label text="Nom" className="label-profile" />
                     <Input
                         type="text"
                         name="lastName"
                         placeholder={userProfile.lastName}
-                        value=""
-                        onChange=""
-                        checked=""
+                        defaultValue=""
                     />
                     <Label text="Email" className="label-profile" />
                     <Input
                         type="text"
                         name="email"
                         placeholder={userProfile.email}
-                        value=""
-                        onChange=""
-                        checked=""
+                        defaultValue=""
                     />
                 </Card>
 
@@ -104,8 +100,8 @@ const Profile = () => {
                         :
                         <Card>
                             Vous n'avez pas de tableaux ajoutés !
-                            <Button text="Ajouter" className="button-card" onClick={() => navigate('/task')} />
                         </Card>}
+                    <Button text="Ajouter" className="button-card" onClick={() => navigate('/task')} />
                 </Card>
             </div>
         </section>
