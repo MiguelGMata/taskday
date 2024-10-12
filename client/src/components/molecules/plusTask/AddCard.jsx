@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { createList } from '../../services/listServices';
+import { createCard } from '../../services/cardServices';
 import Input from '../../atoms/input/Input';
 import Button from '../../atoms/button/Button';
 import Card from '../../atoms/card/Card';
 import "./addCard.css"
 
-const AddCard = ({ open, openChange, taskId, reFetchList }) => {
+const AddCard = ({ open, openChange, taskId, listId, idList, reFetchList }) => {
+
     const [isOpen, setIsOpen] = useState(open);
     const [title, setTitle] = useState([]);
 
@@ -20,12 +22,19 @@ const AddCard = ({ open, openChange, taskId, reFetchList }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await createList(taskId, title);
-            reFetchList();
-            setTitle('');
 
+            if (idList) {
+                // Crear tarjeta si `idList` está presente
+                await createCard(idList, title);
+            } else if (taskId) {
+                // Crear lista si `taskId` está presente
+                await createList(taskId, title);
+                if (reFetchList) reFetchList(); // Refresca las listas después de crear una nueva lista
+            }
+            setTitle('');
+            handleClose();
         } catch (error) {
-            console.log("erreur :" + error);
+            console.log("Erreur :", error);
         }
     }
 

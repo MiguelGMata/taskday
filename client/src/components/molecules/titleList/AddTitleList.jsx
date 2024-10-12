@@ -4,10 +4,12 @@ import { FaTrashAlt } from 'react-icons/fa';
 import Card from '../../atoms/card/Card';
 import Title from '../../atoms/title/Title';
 import Button from '../../atoms/button/Button';
-import PlusTask from './PlusTask';
+import PlusTask from '../plusTask/PlusTask';
+import AddTitleCard from '../titleCard/AddTitleCard';
 import './AddTitleList.css';
 
-const AddTitleList = ({ listId, type = "card" }) => {
+
+const AddTitleList = ({ listId, cardId }) => {
 
     const [lists, setLists] = useState([]);
 
@@ -47,7 +49,8 @@ const AddTitleList = ({ listId, type = "card" }) => {
                                 <Title className="title-list">{list.title}</Title>
                                 <Button className="button-icon" text={<FaTrashAlt />} onClick={() => handleDelete(list.id)} />
                             </div>
-                            <PlusTask listId={listId} reFetchList={fetchList} type={"list"} />
+                            <AddTitleCard listId={listId} cardId={cardId} idList={list.id} />
+                            <PlusTask listId={listId} cardId={cardId} idList={list.id} reFetchList={fetchList} type={"list"} />
                         </Card>
                         <PlusTask listId={listId} reFetchList={fetchList} />
                     </div>

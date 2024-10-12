@@ -1,9 +1,9 @@
 import axiosInstance from "./axios";
 
 // Crear una nueva tarjeta
-export const createCard = async (listId, title, description) => {
+export const createCard = async (listId, title) => {
     try {
-        const response = await axiosInstance.post('/api/cards', { listId, title, description });
+        const response = await axiosInstance.post('/api/cards', { listId, title });
         return response.data;
     } catch (error) {
         if (error.response && error.response.data) {

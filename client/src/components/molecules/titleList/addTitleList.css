@@ -22,3 +22,13 @@
     align-items: center;
     flex-direction: row;
 }
+
+@media(max-width: 767px) {
+    .titleList-content {
+        flex-direction: column;
+    }
+
+    .titleList-block {
+        flex-direction: column;
+    }
+}

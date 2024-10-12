@@ -4,17 +4,16 @@ import { getTasksByUser } from '../../services/taskServices';
 import { getListsByTask } from '../../services/listServices';
 import BackgroundChanger from '../../molecules/background/Background';
 import AddTitleTask from '../../molecules/titleTask/AddTitleTask';
-import PlusTask from '../../molecules/plusTask/PlusTask';
+import AddTitleList from '../../molecules/titleList/AddTitleList';
 import './task.css';
-import AddTitleList from '../../molecules/plusTask/AddTitleList';
+
 
 
 const Task = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [taskId, setTaskId] = useState(null);
     const [listId, setListId] = useState(null);
-    const [lists, setLists] = useState([]);
-    const [shouldFetchLists, setShouldFetchLists] = useState(false);
+    const [cardId, setCardId] = useState(null);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -52,6 +51,26 @@ const Task = () => {
         fetchTasks();
     }, [taskId]);
 
+    // tercer useEffect para obtener cardId basado en listId
+    useEffect(() => {
+        const fetchLists = async () => {
+            try {
+                if (listId) {
+                    const dataListTask = await getListsByTask(listId);
+                    const filteredList = dataListTask.filter(list => list.taskId === listId);
+                    setCardId(filteredList);
+                    /*
+                    if (filteredList.length > 0) {
+                        console.log(filteredList[0].id)
+                        setCardId(filteredList[0].id); // Establecer listId cuando se tiene un taskId válido
+                    }*/
+                }
+            } catch (error) {
+                console.error("Error fetching tasks:", error);
+            }
+        };
+        fetchLists();
+    }, [listId]);
 
     return (
         <section className="section-task">
@@ -64,7 +83,7 @@ const Task = () => {
             <BackgroundChanger isOpen={isOpen} />
 
             <div className="block-task-liste">
-                <AddTitleList listId={listId} />
+                <AddTitleList listId={listId} cardId={cardId} />
             </div>
         </section >
     )
