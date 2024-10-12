@@ -2,21 +2,22 @@ import React, { useState } from 'react';
 import './Background.css';
 
 const BackgroundChanger = ({ isOpen }) => {
-    const [backgroundStyle, setBackgroundStyle] = useState({ backgroundImage: 'url(https://via.placeholder.com/800)' }); // Estilo inicial con imagen
+    const [backgroundStyle, setBackgroundStyle] = useState({ backgroundColor: '#0458d2' }); // Estilo inicial con imagen
 
     const backgrounds = [
-        { type: 'image', value: 'https://via.placeholder.com/800' },
-        { type: 'image', value: 'https://via.placeholder.com/700' },
-        { type: 'image', value: 'https://via.placeholder.com/800' },
-        { type: 'image', value: 'https://via.placeholder.com/700' },
-        { type: 'image', value: 'https://via.placeholder.com/800' },
-        { type: 'image', value: 'https://via.placeholder.com/700' },
-        { type: 'color', value: '#3498db' },
-        { type: 'color', value: '#e74c3c' },
-        { type: 'color', value: '#2ecc71' },
-        { type: 'color', value: '#3498db' },
-        { type: 'color', value: '#e74c3c' },
-        { type: 'color', value: '#2ecc71' }
+        { type: 'color', value: '#0458d2' },
+        { type: 'color', value: '#333' },
+        { type: 'color', value: '#fff' },
+        { type: 'color', value: '#fa2a71' },
+        { type: 'color', value: '#ff6f00ce' },
+        { type: 'color', value: '#ffb4d9' },
+        { type: 'image', value: 'https://image.lexica.art/full_webp/0722e07a-53f0-4966-8dff-a70051643047' },
+        { type: 'image', value: 'https://image.lexica.art/full_webp/7510761f-1e7b-43ef-8838-3c7e40f12510' },
+        { type: 'image', value: 'https://image.lexica.art/full_webp/0d0fbd31-7bb1-4a51-9000-5923fad16e9d' },
+        { type: 'image', value: 'https://image.lexica.art/full_webp/5762f662-ff45-41f6-abf8-f6e34a252f64' },
+        { type: 'image', value: 'https://image.lexica.art/full_webp/4ee7fccc-1ed0-45fd-b1ab-347278c1c039' },
+        { type: 'image', value: 'https://image.lexica.art/full_webp/05d57267-20cf-4dc3-acbd-572b4ea7fc36' },
+
     ];
 
     const changeBackground = (background) => {

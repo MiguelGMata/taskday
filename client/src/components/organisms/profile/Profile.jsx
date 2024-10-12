@@ -93,7 +93,7 @@ const Profile = () => {
                             <ul key={task.id}>
                                 <Card>
                                     <li>{task.title}</li>
-                                    <Button className="button-card" text={<FaTrashAlt onClick={() => handleDelete(task.id)} />} />
+                                    <Button className="button-icon" text={<FaTrashAlt onClick={() => handleDelete(task.id)} />} />
                                 </Card>
                             </ul>
                         )
@@ -101,7 +101,7 @@ const Profile = () => {
                         <Card>
                             Vous n'avez pas de tableaux ajoutés !
                         </Card>}
-                    <Button text="Ajouter" className="button-card" onClick={() => navigate('/task')} />
+                    <Button text="+ Ajouter" className="button-card" onClick={() => navigate('/task')} />
                 </Card>
             </div>
         </section>

@@ -66,7 +66,7 @@ const AddTitleTask = ({ taskId }) => {
             <Input
                 type="text"
                 name="title"
-                placeholder={title || "Ajouter une tâches"}
+                placeholder={title || "Ajouter un titre"}
                 value={title || ""}
                 onChange={handleInputChange}
                 className="input-title"

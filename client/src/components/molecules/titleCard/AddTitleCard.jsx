@@ -46,7 +46,6 @@ const AddTitleCard = ({ listId, cardId, idList }) => {
                     </Card>
                 )
                 :
-
                 " "}
         </div>
     );

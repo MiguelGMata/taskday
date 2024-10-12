@@ -52,12 +52,12 @@ const AddTitleList = ({ listId, cardId }) => {
                             <AddTitleCard listId={listId} cardId={cardId} idList={list.id} />
                             <PlusTask listId={listId} cardId={cardId} idList={list.id} reFetchList={fetchList} type={"list"} />
                         </Card>
-                        <PlusTask listId={listId} reFetchList={fetchList} />
                     </div>
                 )
                 :
                 <PlusTask listId={listId} reFetchList={fetchList} />
             }
+            <PlusTask listId={listId} reFetchList={fetchList} />
         </div>
     );
 };

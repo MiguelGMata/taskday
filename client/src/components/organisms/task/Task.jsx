@@ -59,11 +59,6 @@ const Task = () => {
                     const dataListTask = await getListsByTask(listId);
                     const filteredList = dataListTask.filter(list => list.taskId === listId);
                     setCardId(filteredList);
-                    /*
-                    if (filteredList.length > 0) {
-                        console.log(filteredList[0].id)
-                        setCardId(filteredList[0].id); // Establecer listId cuando se tiene un taskId válido
-                    }*/
                 }
             } catch (error) {
                 console.error("Error fetching tasks:", error);

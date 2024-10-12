@@ -31,7 +31,7 @@ const PlusTask = ({ listId, cardId, idList, reFetchList, type }) => {
                     {type === "list" ? (
                         <Button className="button-list" text="+ Ajouter une carte" onClick={() => setOpen(true)} />
                     ) : (
-                        <Button className="button-list" text="+ Ajoutez une liste" onClick={() => setOpen(true)} />
+                        <Button className="button-list" text="+ Ajouter une liste" onClick={() => setOpen(true)} />
                     )}
                 </div>
             )}

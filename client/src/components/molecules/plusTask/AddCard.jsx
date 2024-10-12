@@ -45,7 +45,7 @@ const AddCard = ({ open, openChange, taskId, listId, idList, reFetchList }) => {
                 <Input
                     type="text"
                     name="title"
-                    placeholder="Saisissez le nom de la liste..."
+                    placeholder="Saisissez un nom..."
                     value={title || ""}
                     onChange={handleInputChange}
                 />
