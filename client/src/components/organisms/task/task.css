@@ -5,7 +5,6 @@
 .block-task {
     display: flex;
     justify-content: left;
-
     position: relative;
     padding: 10px;
     padding-top: 30px;

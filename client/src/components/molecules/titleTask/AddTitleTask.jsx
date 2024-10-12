@@ -5,7 +5,7 @@ import Input from '../../atoms/input/Input';
 import Button from '../../atoms/button/Button';
 import './addTitle.css';
 
-const AddTitle = ({ taskId }) => {
+const AddTitleTask = ({ taskId }) => {
     const [title, setTitle] = useState("");
     const [idTask, setIdTask] = useState("");
     const [isEditing, setIsEditing] = useState(false);
@@ -76,5 +76,5 @@ const AddTitle = ({ taskId }) => {
     );
 };
 
-export default AddTitle;
+export default AddTitleTask;
 

@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { createList, getListById, updateList, deleteList } from '../../services/listServices';
+import { createList } from '../../services/listServices';
 import Input from '../../atoms/input/Input';
 import Button from '../../atoms/button/Button';
 import Card from '../../atoms/card/Card';
-import "./plusTask.css"
+import "./addCard.css"
 
-const AddCardList = ({ open, openChange, taskId, reFetchList }) => {
+const AddCard = ({ open, openChange, taskId, reFetchList }) => {
     const [isOpen, setIsOpen] = useState(open);
     const [title, setTitle] = useState([]);
 
-    console.log(taskId)
     const handleClose = (newOpen) => {
         setIsOpen(!isOpen);
         openChange(!isOpen);
@@ -32,7 +31,7 @@ const AddCardList = ({ open, openChange, taskId, reFetchList }) => {
 
 
     return (
-        <div className='addcarlist-content'>
+        <Card className='addcarlist-content'>
             <form onSubmit={handleSubmit}>
                 <Input
                     type="text"
@@ -46,8 +45,8 @@ const AddCardList = ({ open, openChange, taskId, reFetchList }) => {
                     <Button className="button-icon" text="X" onClick={() => handleClose(isOpen)} />
                 </div>
             </form>
-        </div>
+        </Card>
     );
 };
 
-export default AddCardList;
+export default AddCard;

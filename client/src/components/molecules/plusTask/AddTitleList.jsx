@@ -47,8 +47,9 @@ const AddTitleList = ({ listId, type = "card" }) => {
                                 <Title className="title-list">{list.title}</Title>
                                 <Button className="button-icon" text={<FaTrashAlt />} onClick={() => handleDelete(list.id)} />
                             </div>
-                            <PlusTask listId={listId} />
+                            <PlusTask listId={listId} reFetchList={fetchList} type={"list"} />
                         </Card>
+                        <PlusTask listId={listId} reFetchList={fetchList} />
                     </div>
                 )
                 :

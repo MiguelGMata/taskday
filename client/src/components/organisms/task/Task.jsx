@@ -3,7 +3,7 @@ import { profileUser } from '../../services/userServices';
 import { getTasksByUser } from '../../services/taskServices';
 import { getListsByTask } from '../../services/listServices';
 import BackgroundChanger from '../../molecules/background/Background';
-import AddTitle from '../../molecules/titleTask/AddTitle';
+import AddTitleTask from '../../molecules/titleTask/AddTitleTask';
 import PlusTask from '../../molecules/plusTask/PlusTask';
 import './task.css';
 import AddTitleList from '../../molecules/plusTask/AddTitleList';
@@ -59,7 +59,7 @@ const Task = () => {
                 <button className="menu-toggle-btn" onClick={toggleMenu}>
                     {isOpen ? "Fermer" : "Fond d'écran"}
                 </button>
-                <AddTitle taskId={taskId} />
+                <AddTitleTask taskId={taskId} />
             </div>
             <BackgroundChanger isOpen={isOpen} />
 

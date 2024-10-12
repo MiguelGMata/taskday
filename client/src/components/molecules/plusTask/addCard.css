@@ -1,0 +1,8 @@
+.addcarlist-content {
+    width: 100%;
+}
+
+.addcarlist-block {
+    display: flex;
+    gap: 10px;
+}

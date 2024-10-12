@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Button from '../../atoms/button/Button';
-import AddCardList from './AddCardList';
+import AddCard from './AddCard';
 import "./plusTask.css";
 
-const PlusTask = ({ listId, reFetchList, type = "card" }) => {
+const PlusTask = ({ listId, reFetchList, type }) => {
+
     const [open, setOpen] = useState(false);
     const handleOpenChange = (newState) => {
         setOpen(newState)
@@ -17,7 +18,7 @@ const PlusTask = ({ listId, reFetchList, type = "card" }) => {
     return (
         <div className='plustask-content'>
             {open ? (
-                <AddCardList
+                <AddCard
                     open={open}
                     openChange={handleOpenChange}
                     taskId={listId}
@@ -25,10 +26,10 @@ const PlusTask = ({ listId, reFetchList, type = "card" }) => {
                 />
             ) : (
                 <div>
-                    {type === "card" ? (
-                        <Button text="+ Ajouter une liste" onClick={() => setOpen(true)} />
+                    {type === "list" ? (
+                        <Button text="+ Ajouter une carte" onClick={() => setOpen(true)} />
                     ) : (
-                        <Button text="+ Ajoutez une autre liste" onClick={() => setOpen(true)} />
+                        <Button text="+ Ajoutez une liste" onClick={() => setOpen(true)} />
                     )}
                 </div>
             )}
