@@ -24,7 +24,7 @@ const BackgroundChanger = ({ isOpen }) => {
         const loadBackground = async () => {
             try {
                 const savedBackground = await fetchBackground();
-                console.log(savedBackground); // Para verificar la respuesta
+                console.log(savedBackground, 'Para verificar la respuesta'); // Para verificar la respuesta
 
                 if (savedBackground && savedBackground.value) {
                     const style = savedBackground.type === 'image'
