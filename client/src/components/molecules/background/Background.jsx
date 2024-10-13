@@ -20,15 +20,19 @@ const BackgroundChanger = ({ isOpen }) => {
     ];
 
     // Fetch background from database on component mount
+    // Fetch background from database on component mount
     useEffect(() => {
         const loadBackground = async () => {
             try {
                 const savedBackground = await fetchBackground();
                 if (savedBackground) {
+                    // Verifica si la respuesta tiene el formato esperado
+                    const backgroundValue = savedBackground.type === 'image' ? savedBackground.value : '';
+
                     // Establece el estilo de fondo basado en la respuesta
                     setBackgroundStyle({
                         backgroundColor: savedBackground.type === 'color' ? savedBackground.value : '',
-                        backgroundImage: savedBackground.type === 'image' ? `url(${savedBackground.value})` : '',
+                        backgroundImage: backgroundValue ? `url(${backgroundValue})` : '', // Usa el value directamente
                     });
                 }
             } catch (error) {
@@ -37,6 +41,7 @@ const BackgroundChanger = ({ isOpen }) => {
         };
         loadBackground();
     }, []);
+
 
     const changeBackground = async (background) => {
         // Update the background style
@@ -53,10 +58,10 @@ const BackgroundChanger = ({ isOpen }) => {
             console.error("Échec de l'enregistrement de l'arrière-plan :", error);
         }
     };
-
+    console.log(backgroundStyle, '<');
     return (
         <div className='background'>
-            <div className="background-container" style={{ backgroundImage: `url(${backgroundStyle})` }}></div>
+            <div className="background-container" style={backgroundStyle}></div>
             <div className={`background-options ${isOpen ? 'open' : ''}`}>
                 {backgrounds.map((background, index) => (
                     <button

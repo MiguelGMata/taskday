@@ -27,7 +27,7 @@ exports.saveBackground = async (req, res) => {
 
 exports.fetchBackground = async (req, res) => {
     try {
-        const background = await models.Background.findOne({ where: { userId: req.user.id } }); // Asegúrate de filtrar por userId
+        const background = await models.Background.findOne({ where: { userId: req.user.id } });
         if (!background) {
             return res.status(404).json({ message: 'No background found for this user' });
         }

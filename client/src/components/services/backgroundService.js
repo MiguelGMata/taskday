@@ -3,9 +3,9 @@ import axiosInstance from "./axios";
 
 export const saveBackground = async (background) => {
     try {
-        await await axiosInstance.post(`/api/save`, { background }); // Asegúrate de que tu backend pueda manejar esto
+        await await axiosInstance.post(`/api/save`, { background });
     } catch (error) {
-        console.error("Error saving background:", error);
+        console.error("Erreur lors de l'enregistrement de l'arrière-plan :", error);
     }
 };
 
@@ -15,7 +15,7 @@ export const fetchBackground = async () => {
         console.log(response.data)
         return response.data;
     } catch (error) {
-        console.error("Error fetching background:", error);
+        console.error("Erreur lors de la récupération de l'arrière-plan :", error);
         return null;
     }
 };
