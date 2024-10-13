@@ -26,14 +26,16 @@ const BackgroundChanger = ({ isOpen }) => {
             try {
                 const savedBackground = await fetchBackground();
                 console.log("Fetched Background:", savedBackground); // Verificar respuesta
-                const type = savedBackground.type;
-                const value = savedBackground.value;
+                const parsedBackground = JSON.parse(JSON.stringify(savedBackground));
+
+                const type = parsedBackground.type;
+                const value = parsedBackground.value;
                 console.log('prueba', type)
                 console.log('prueba', value)
 
                 const style = type === 'image'
-                    ? { backgroundImage: `url(${{ value }})` }
-                    : { backgroundColor: { value } };
+                    ? { backgroundImage: `url(${value})` }
+                    : { backgroundColor: value };
 
                 console.log("Setting Background Style:", style); // Verificar antes de aplicar el estilo
                 setBackgroundStyle(style);
