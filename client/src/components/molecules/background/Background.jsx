@@ -31,6 +31,7 @@ const BackgroundChanger = ({ isOpen }) => {
                         ? { backgroundImage: `url(${savedBackground.value})` }
                         : { backgroundColor: savedBackground.value };
 
+                    console.log("Setting Background Style:", style);
                     setBackgroundStyle(style);
                 }
             } catch (error) {
