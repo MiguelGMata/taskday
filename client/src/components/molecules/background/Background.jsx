@@ -27,7 +27,7 @@ const BackgroundChanger = ({ isOpen }) => {
                 const savedBackground = await fetchBackground();
                 console.log("Fetched Background:", savedBackground); // Verificar respuesta
 
-                if (savedBackground && savedBackground.value) {
+                if (savedBackground && savedBackground.type && savedBackground.value) {
                     const style = savedBackground.type === 'image'
                         ? { backgroundImage: `url(${savedBackground.value})` }
                         : { backgroundColor: savedBackground.value };
