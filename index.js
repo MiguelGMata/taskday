@@ -29,7 +29,8 @@ sequelize.authenticate()
 const corsOptions = {
     origin: [
         'http://localhost:8080',
-        'https://taskday-france.vercel.app'
+        'https://taskday-france.vercel.app',
+        'https://taskday-france-jj0spn8z5-miguelgmatas-projects.vercel.app'
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true
@@ -67,5 +68,5 @@ app.listen(PORT, () => {
 
 
 // Exportar configuración
-module.exports = sequelize;
+module.exports = app;
 
