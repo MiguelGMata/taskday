@@ -24,6 +24,9 @@ module.exports = {
       description: {
         type: Sequelize.TEXT
       },
+      order: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

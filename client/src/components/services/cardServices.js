@@ -59,8 +59,9 @@ export const getCardById = async (id) => {
 export const updateCard = async (card) => {
     const id = card.id;
     const title = card.title;
+    const order = card.order;
     try {
-        const response = await axiosInstance.put(`/api/cards/${id}`, { title });
+        const response = await axiosInstance.put(`/api/cards/${id}`, { title, order });
         return response.data;
     } catch (error) {
         if (error.response && error.response.data) {

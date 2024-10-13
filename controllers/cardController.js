@@ -72,7 +72,7 @@ exports.getCardById = async (req, res) => {
 
 exports.updateCard = async (req, res) => {
     const { id } = req.params;
-    const { title, description } = req.body;
+    const { title, description, order } = req.body; // Incluye el campo `order`
 
     try {
         const card = await models.Card.findByPk(id);
@@ -80,8 +80,9 @@ exports.updateCard = async (req, res) => {
             throw new NotFoundError('Carte non trouvée', "La carte n'existe pas");
         }
 
-        card.title = title || card.title; // Actualiza solo el título si se proporciona
-        card.description = description || card.description; // Actualiza solo la descripción si se proporciona
+        card.title = title || card.title;
+        card.description = description || card.description;
+        card.order = order || card.order; // Actualiza el orden si se proporciona
         await card.save();
 
         res.json({
@@ -93,6 +94,7 @@ exports.updateCard = async (req, res) => {
         res.status(500).json({ error: "Erreur lors de la mise à jour de la carte" });
     }
 };
+
 
 
 exports.deleteCard = async (req, res) => {

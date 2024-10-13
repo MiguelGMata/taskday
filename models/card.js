@@ -14,6 +14,11 @@ module.exports = (sequelize, DataTypes) => {
     {
       title: DataTypes.STRING,
       description: DataTypes.TEXT,
+      order: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 0, // Para asegurarse de que las tarjetas tengan un valor por defecto
+      }
     }, {
     sequelize,
     modelName: 'Card',

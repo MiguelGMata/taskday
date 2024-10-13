@@ -4,7 +4,7 @@ import Task from '../../organisms/task/Task';
 import './taskScreen.css';
 
 
-const SignInScreen = () => {
+const TaskScreen = () => {
 
     return (
         <main className="main-task">
@@ -14,4 +14,4 @@ const SignInScreen = () => {
         </main>
     )
 }
-export default SignInScreen;
+export default TaskScreen;
