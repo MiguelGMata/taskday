@@ -25,23 +25,19 @@ const BackgroundChanger = ({ isOpen }) => {
         const loadBackground = async () => {
             try {
                 const savedBackground = await fetchBackground();
-                console.log("Fetched Background:", savedBackground);
 
-                // Si la respuesta parece ser una cadena JSON, parsearla
+                // Si es JSON, parsearla
                 const parsedBackground = typeof savedBackground === 'string' ? JSON.parse(savedBackground) : savedBackground;
 
-                console.log("Parsed Background:", parsedBackground);
-                console.log("Keys in Parsed Background:", Object.keys(parsedBackground));
-
-                const type = parsedBackground.type;
-                const value = parsedBackground.value;
-                console.log('type', type);
-                console.log('value', value);
-
-                if (type === 'image') {
-                    setBackgroundStyle({ backgroundImage: `url(${value})` });
-                } else if (type === 'color') {
-                    setBackgroundStyle({ backgroundColor: value });
+                const { type, value } = parsedBackground || {};
+                if (type && value) {
+                    if (type === 'image') {
+                        setBackgroundStyle({ backgroundImage: `url(${value})` });
+                    } else if (type === 'color') {
+                        setBackgroundStyle({ backgroundColor: value });
+                    }
+                } else {
+                    console.warn("Background data is missing 'type' or 'value'");
                 }
             } catch (error) {
                 console.error("Erreur lors du chargement de l'arrière-plan :", error);
@@ -66,7 +62,7 @@ const BackgroundChanger = ({ isOpen }) => {
             console.error("Échec de l'enregistrement de l'arrière-plan :", error);
         }
     };
-    console.log(backgroundStyle, '<');
+
     return (
         <div className='background'>
             <div className="background-container" style={backgroundStyle}></div>
@@ -82,7 +78,6 @@ const BackgroundChanger = ({ isOpen }) => {
                     </button>
                 ))}
             </div>
-
         </div>
     );
 };

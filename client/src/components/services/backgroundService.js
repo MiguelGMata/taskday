@@ -5,7 +5,7 @@ export const saveBackground = async (background) => {
     try {
         await await axiosInstance.post(`/api/save`, { background });
     } catch (error) {
-        console.error("Erreur lors de l'enregistrement de l'arrière-plan :", error);
+        console.error("Erreur lors de l'enregistrement de l'arrière-plan :", error);
     }
 };
 
