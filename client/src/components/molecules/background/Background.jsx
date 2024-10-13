@@ -32,7 +32,7 @@ const BackgroundChanger = ({ isOpen }) => {
                     });
                 }
             } catch (error) {
-                console.error("Error loading background:", error);
+                console.error("Erreur lors du chargement de l'arrière-plan :", error);
             }
         };
         loadBackground();
@@ -50,13 +50,13 @@ const BackgroundChanger = ({ isOpen }) => {
         try {
             await saveBackground({ type: background.type, value: background.value });
         } catch (error) {
-            console.error("Failed to save background:", error);
+            console.error("Échec de l'enregistrement de l'arrière-plan :", error);
         }
     };
 
     return (
         <div className='background'>
-            <div className="background-container" style={backgroundStyle}></div>
+            <div className="background-container" style={{ backgroundImage: `url(${backgroundStyle})` }}></div>
             <div className={`background-options ${isOpen ? 'open' : ''}`}>
                 {backgrounds.map((background, index) => (
                     <button
