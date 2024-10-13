@@ -6,6 +6,7 @@ const usersController = require('../controllers/userController');
 const tasksController = require('../controllers/taskController');
 const listController = require('../controllers/listController');
 const cardController = require('../controllers/cardController');
+const backgroundController = require('../controllers/backgroundController');
 
 
 // User routes
@@ -35,5 +36,9 @@ router.get('/lists/:listId/cards', authenticateToken, cardController.getCardsByL
 router.get('/cards/:id', authenticateToken, cardController.getCardById);
 router.put('/cards/:id', authenticateToken, cardController.updateCard);
 router.delete('/cards/:id', authenticateToken, cardController.deleteCard);
+
+//background routes
+router.post('/save', authenticateToken, backgroundController.saveBackground);
+router.get('/get', authenticateToken, backgroundController.fetchBackground);
 
 module.exports = router;

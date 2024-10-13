@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import './Background.css';
+import React, { useState, useEffect } from 'react';
+import { saveBackground, fetchBackground } from '../../services/backgroundService';
+import './background.css';
 
 const BackgroundChanger = ({ isOpen }) => {
-    const [backgroundStyle, setBackgroundStyle] = useState({ backgroundColor: '#0458d2' }); // Estilo inicial con imagen
-
+    const [backgroundStyle, setBackgroundStyle] = useState({});
     const backgrounds = [
         { type: 'color', value: '#0458d2' },
         { type: 'color', value: '#333' },
@@ -17,38 +17,61 @@ const BackgroundChanger = ({ isOpen }) => {
         { type: 'image', value: 'https://image.lexica.art/full_webp/5762f662-ff45-41f6-abf8-f6e34a252f64' },
         { type: 'image', value: 'https://image.lexica.art/full_webp/4ee7fccc-1ed0-45fd-b1ab-347278c1c039' },
         { type: 'image', value: 'https://image.lexica.art/full_webp/05d57267-20cf-4dc3-acbd-572b4ea7fc36' },
-
     ];
 
-    const changeBackground = (background) => {
-        if (background.type === 'image') {
-            setBackgroundStyle({ backgroundImage: `url(${background.value})`, backgroundColor: '' });
-        } else {
-            setBackgroundStyle({ backgroundColor: background.value, backgroundImage: '' });
+    // Fetch background from database on component mount
+    useEffect(() => {
+        const loadBackground = async () => {
+            try {
+                const savedBackground = await fetchBackground();
+                if (savedBackground) {
+                    // Establece el estilo de fondo basado en la respuesta
+                    setBackgroundStyle({
+                        backgroundColor: savedBackground.type === 'color' ? savedBackground.value : '',
+                        backgroundImage: savedBackground.type === 'image' ? `url(${savedBackground.value})` : '',
+                    });
+                }
+            } catch (error) {
+                console.error("Error loading background:", error);
+            }
+        };
+        loadBackground();
+    }, []);
+
+    const changeBackground = async (background) => {
+        // Update the background style
+        const newBackgroundStyle = background.type === 'image'
+            ? { backgroundImage: `url(${background.value})`, backgroundColor: '' }
+            : { backgroundColor: background.value, backgroundImage: '' };
+
+        setBackgroundStyle(newBackgroundStyle);
+
+        // Save the selected background to the database
+        try {
+            await saveBackground({ type: background.type, value: background.value });
+        } catch (error) {
+            console.error("Failed to save background:", error);
         }
     };
 
     return (
         <div className='background'>
             <div className="background-container" style={backgroundStyle}>
-
-            </div>
-            <div className={`background-options ${isOpen ? 'open' : ''}`}>
-                {backgrounds.map((background, index) => (
-                    <button
-                        key={index}
-                        className="background-btn"
-                        onClick={() => changeBackground(background)}
-                        style={background.type === 'image' ? { backgroundImage: `url(${background.value})` } : { backgroundColor: background.value }}
-                    >
-                        {background.type === 'image' ? `Image ${index + 1}` : `Couleur ${index + 1}`}
-                    </button>
-                ))}
+                <div className={`background-options ${isOpen ? 'open' : ''}`}>
+                    {backgrounds.map((background, index) => (
+                        <button
+                            key={index}
+                            className="background-btn"
+                            onClick={() => changeBackground(background)}
+                            style={background.type === 'image' ? { backgroundImage: `url(${background.value})` } : { backgroundColor: background.value }}
+                        >
+                            {background.type === 'image' ? `Image ${index + 1}` : `Couleur ${index + 1}`}
+                        </button>
+                    ))}
+                </div>
             </div>
         </div>
-
     );
 };
 
 export default BackgroundChanger;
-
