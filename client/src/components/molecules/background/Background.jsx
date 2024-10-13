@@ -27,15 +27,15 @@ const BackgroundChanger = ({ isOpen }) => {
                 const savedBackground = await fetchBackground();
                 console.log("Fetched Background:", savedBackground); // Verificar respuesta
 
-                if (savedBackground && savedBackground.type && savedBackground.value) {
-                    const style = savedBackground.type === 'image'
-                        ? { backgroundImage: `url(${savedBackground.value})` }
-                        : { backgroundColor: savedBackground.value };
 
-                    console.log("Setting Background Style:", style); // Verificar antes de aplicar el estilo
-                    setBackgroundStyle(style);
-                    setRefresh(prev => !prev); // Forzar re-renderización
-                }
+                const style = savedBackground.type === 'image'
+                    ? { backgroundImage: `url(${savedBackground.value})` }
+                    : { backgroundColor: savedBackground.value };
+
+                console.log("Setting Background Style:", style); // Verificar antes de aplicar el estilo
+                setBackgroundStyle(style);
+                setRefresh(prev => !prev); // Forzar re-renderización
+
             } catch (error) {
                 console.error("Erreur lors du chargement de l'arrière-plan :", error);
             }
