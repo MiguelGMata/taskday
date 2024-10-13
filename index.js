@@ -9,6 +9,15 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const corsOptions = {
+    origin: [
+        'http://localhost:8080', // Permitir el frontend en localhost
+        'https://taskday-kappa-qpglo4me2-miguelgmatas-projects.vercel.app' // Permitir el frontend en producción
+    ],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Métodos permitidos
+    credentials: true // Si necesitas manejar credenciales (opcional)
+};
+
 // Crear una instancia de Sequelize
 const sequelize = new Sequelize(
     process.env.DB_NAME,
@@ -26,7 +35,9 @@ sequelize.authenticate()
     .catch(err => console.error('Unable to connect to the database:', err));
 
 //Middleware
-app.use(cors());
+
+// Usa la configuración de CORS
+app.use(cors(corsOptions));
 app.use(express.json());
 
 //Routes
