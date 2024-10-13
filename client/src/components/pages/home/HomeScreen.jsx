@@ -1,11 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Title from '../../atoms/title/Title';
 import Button from '../../atoms/button/Button';
 import Image from '../../atoms/image/Image';
 import './homeScreen.css';
 
 const HomeScreen = () => {
-
+    const navigate = useNavigate();
 
     return (
         <main className='main-homescreen'>
@@ -13,13 +14,16 @@ const HomeScreen = () => {
                 <div className='block-homescreen'>
                     <Title className="title-primary">TaskDay rassemble vos tâches en un seul endroit</Title>
                     <p>Centralisez tout votre contenu, même dans une équipe distribuée.</p>
-                    <Button text="Inscrivez-vous, c'est gratuit !" />
+                    {(localStorage.getItem('token')) ?
+                        <Button text="Accéder au tableau !" onClick={() => navigate('/task')} />
+                        :
+                        <Button text="Inscrivez-vous, c'est gratuit !" onClick={() => navigate('/signUp')} />
+                    }
                 </div>
                 <div className='block-homescreen'>
                     <Image image='./images/Trell0.webp' className='image-home' />
                 </div>
             </section>
-
             <div className="block-homescreen-svg">
                 <p className="title-homescreen">Collaborez efficacement, suivez l'avancement de chaque mission et organisez vos priorités en temps réel. Avec TaskDay, boostez votre productivité et travaillez en toute sérénité.</p>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 320" className='svg'>

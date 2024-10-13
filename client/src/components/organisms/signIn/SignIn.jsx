@@ -17,6 +17,7 @@ const SignIn = () => {
             const data = await signInUser(email, password);
             if (data) {
                 navigate('/profile');
+                window.location.reload();
             }
         } catch (error) {
             setErrorMessage(error.response.data.description);

@@ -13,6 +13,7 @@
     padding: 0 5px;
     transition: 0.5s ease-in-out;
     gap: 5px;
+    cursor: pointer;
 }
 
 .titleList-edit {

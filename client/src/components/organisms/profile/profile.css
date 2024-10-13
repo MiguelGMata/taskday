@@ -99,4 +99,11 @@
     }
 }
 
-@media (max-width: 767px) {}
+@media (max-width: 767px) {
+    .profile-block {
+        width: 100%;
+        padding: 20px;
+        min-width: 100%;
+    }
+
+}

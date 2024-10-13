@@ -56,20 +56,20 @@ const BackgroundChanger = ({ isOpen }) => {
 
     return (
         <div className='background'>
-            <div className="background-container" style={backgroundStyle}>
-                <div className={`background-options ${isOpen ? 'open' : ''}`}>
-                    {backgrounds.map((background, index) => (
-                        <button
-                            key={index}
-                            className="background-btn"
-                            onClick={() => changeBackground(background)}
-                            style={background.type === 'image' ? { backgroundImage: `url(${background.value})` } : { backgroundColor: background.value }}
-                        >
-                            {background.type === 'image' ? `Image ${index + 1}` : `Couleur ${index + 1}`}
-                        </button>
-                    ))}
-                </div>
+            <div className="background-container" style={backgroundStyle}></div>
+            <div className={`background-options ${isOpen ? 'open' : ''}`}>
+                {backgrounds.map((background, index) => (
+                    <button
+                        key={index}
+                        className="background-btn"
+                        onClick={() => changeBackground(background)}
+                        style={background.type === 'image' ? { backgroundImage: `url(${background.value})` } : { backgroundColor: background.value }}
+                    >
+                        {background.type === 'image' ? `Image ${index + 1}` : `Couleur ${index + 1}`}
+                    </button>
+                ))}
             </div>
+
         </div>
     );
 };
