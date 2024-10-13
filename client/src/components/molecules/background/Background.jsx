@@ -32,8 +32,8 @@ const BackgroundChanger = ({ isOpen }) => {
                 console.log('prueba', value)
 
                 const style = type === 'image'
-                    ? { backgroundImage: `url(${value})` }
-                    : { backgroundColor: value };
+                    ? { backgroundImage: `url(${{ value }})` }
+                    : { backgroundColor: { value } };
 
                 console.log("Setting Background Style:", style); // Verificar antes de aplicar el estilo
                 setBackgroundStyle(style);
