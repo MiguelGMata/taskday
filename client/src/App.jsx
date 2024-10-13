@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'; ``
+import { HashRouter as Router } from 'react-router-dom'; ``
 import AppRouter from './components/routes/AppRouter';
 import Navbar from './components/organisms/navbar/Navbar';
 import CookiesConsent from './components/organisms/cookies/CookieConsent';
