@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'; ``
 import AppRouter from './components/routes/AppRouter';
 import Navbar from './components/organisms/navbar/Navbar';
+import CookiesConsent from './components/organisms/cookies/CookieConsent';
 import './components/styles/global.css'
 
 const App = () => {
@@ -9,6 +10,7 @@ const App = () => {
   return (
     <Router>
       <div className="app">
+        <CookiesConsent />
         <Navbar />
         <AppRouter />
       </div>

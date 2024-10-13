@@ -5,6 +5,7 @@ import SignInScreen from "../pages/signIn/SignInScreen";
 import SignUpScreen from "../pages/signUp/SignUpScreen";
 import ProfileScreen from "../pages/profile/ProfileScreen";
 import TaskScreen from "../pages/task/TaskScreen";
+import Error from '../pages/error/Error';
 
 const AppRouter = () => {
 
@@ -15,6 +16,7 @@ const AppRouter = () => {
             <Route path="/signUp" element={<SignUpScreen />} />
             <Route path="/profile" element={<ProfileScreen />} />
             <Route path="/task" element={<TaskScreen />} />
+            <Route path="/*" element={<Error />} />
         </Routes>
     )
 }

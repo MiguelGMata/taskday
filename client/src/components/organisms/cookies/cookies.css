@@ -1,0 +1,44 @@
+/* Estilos para el banner de cookies */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    min-width: 30%;
+    min-height: 30%;
+    color: #000;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-image: url("https://ik.imagekit.io/logoMGM/cookies-cnill-600x425.png?updatedAt=1726779711918");
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: 100% 120%;
+    background-color: #fff;
+    z-index: 10;
+  }
+  
+  /* Estilos para el botón de aceptar */
+  .cookie-button {
+    background-color:  #54bfe9; 
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px; 
+    font-size: 16px;
+    width: 100px;
+    transition: background-color 0.3s, color 0.3s; /* Transición suave para el cambio de color */
+  }
+  
+  /* Estilo al pasar el ratón sobre el botón */
+  .cookie-button:hover {
+    background-color: #007bff;
+    color: #fff; 
+  }
+  
+  @media(min-width:768px) {
+    .cookie-banner{
+      width: 30%;
+    }
+  }
