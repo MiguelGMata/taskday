@@ -28,11 +28,11 @@ const BackgroundChanger = ({ isOpen }) => {
                 console.log("Fetched Background:", savedBackground); // Verificar respuesta
                 const parsedBackground = JSON.parse(JSON.stringify(savedBackground));
                 console.log('parsedBackground', parsedBackground)
-                const type = parsedBackground.type;
-                console.log('type', type)
-                const value = parsedBackground.value;
-                console.log('value', value)
-
+                const type = parsedBackground?.['type'];
+                const value = parsedBackground?.['value'];
+                console.log('type', type);
+                console.log('value', value);
+                console.log("Keys in parsedBackground:", Object.keys(parsedBackground));
                 const style = type === 'image'
                     ? { backgroundImage: `url(${value})` }
                     : { backgroundColor: value };
