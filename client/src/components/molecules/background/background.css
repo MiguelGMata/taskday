@@ -14,13 +14,12 @@
     flex-wrap: wrap;
     gap: 10px;
     position: absolute;
-    bottom: 200px;
+    bottom: 0px;
     left: -600px;
     opacity: 0;
     transition: all 0.5s ease;
-    background-color: white;
-    max-width: 350px;
-    height: 40vh;
+    background-color: var(--green);
+    z-index: 1000;
 }
 
 .background-options.open {

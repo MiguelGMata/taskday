@@ -29,8 +29,10 @@ const BackgroundChanger = ({ isOpen }) => {
     };
 
     return (
-        <div className="background-container" style={backgroundStyle}>
+        <div className='background'>
+            <div className="background-container" style={backgroundStyle}>
 
+            </div>
             <div className={`background-options ${isOpen ? 'open' : ''}`}>
                 {backgrounds.map((background, index) => (
                     <button
@@ -44,6 +46,7 @@ const BackgroundChanger = ({ isOpen }) => {
                 ))}
             </div>
         </div>
+
     );
 };
 
