@@ -20,20 +20,18 @@ const BackgroundChanger = ({ isOpen }) => {
     ];
 
     // Fetch background from database on component mount
-    // Fetch background from database on component mount
     useEffect(() => {
         const loadBackground = async () => {
             try {
                 const savedBackground = await fetchBackground();
-                if (savedBackground) {
-                    // Verifica si la respuesta tiene el formato esperado
-                    const backgroundValue = savedBackground.type === 'image' ? savedBackground.value : '';
+                console.log(savedBackground); // Para verificar la respuesta
 
-                    // Establece el estilo de fondo basado en la respuesta
-                    setBackgroundStyle({
-                        backgroundColor: savedBackground.type === 'color' ? savedBackground.value : '',
-                        backgroundImage: backgroundValue ? `url(${backgroundValue})` : '', // Usa el value directamente
-                    });
+                if (savedBackground && savedBackground.value) {
+                    const style = savedBackground.type === 'image'
+                        ? { backgroundImage: `url(${savedBackground.value})` }
+                        : { backgroundColor: savedBackground.value };
+
+                    setBackgroundStyle(style);
                 }
             } catch (error) {
                 console.error("Erreur lors du chargement de l'arrière-plan :", error);
