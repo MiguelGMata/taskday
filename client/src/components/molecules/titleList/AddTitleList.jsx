@@ -7,7 +7,7 @@ import Button from '../../atoms/button/Button';
 import PlusTask from '../plusTask/PlusTask';
 import AddTitleCard from '../titleCard/AddTitleCard';
 import Input from '../../atoms/input/Input';
-import './AddTitleList.css';
+import './addTitleList.css';
 
 const AddTitleList = ({ listId, cardId }) => {
     const [lists, setLists] = useState([]);
