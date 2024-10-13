@@ -1,6 +1,6 @@
 import React from 'react';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
-import './DragAndDropList.css';
+import './dragAndDropList.css';
 
 const DragAndDropList = ({ children, onDragEnd, droppableId = "droppable-area" }) => {
 
