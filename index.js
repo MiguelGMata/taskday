@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 const corsOptions = {
     origin: [
         'http://localhost:8080', // Permitir el frontend en localhost
-        'https://taskday-kappa-qpglo4me2-miguelgmatas-projects.vercel.app' // Permitir el frontend en producción
+        'taskday-kappa.vercel.app' // Permitir el frontend en producción
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Métodos permitidos
     credentials: true // Si necesitas manejar credenciales (opcional)
