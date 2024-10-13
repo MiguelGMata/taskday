@@ -12,8 +12,8 @@ const HomeScreen = () => {
         <main className='main-homescreen'>
             <section className="section-homescreen">
                 <div className='block-homescreen'>
-                    <Title className="title-primary">TaskDay rassemble vos tâches en un seul endroit</Title>
-                    <p>Centralisez tout votre contenu, même dans une équipe distribuée.</p>
+                    <Title className="title-primary">TaskDay rassemble vos tâches</Title>
+                    <p>Centralisez tout votre contenu en un seul endroit</p>
                     {(localStorage.getItem('token')) ?
                         <Button text="Accéder au tableau !" onClick={() => navigate('/task')} />
                         :
