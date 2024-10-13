@@ -26,7 +26,17 @@ sequelize.authenticate()
     .catch(err => console.error('Unable to connect to the database:', err));
 
 //Middleware
-app.use(cors());
+const corsOptions = {
+    origin: [
+        'http://localhost:8080',
+        'https://taskday-france.vercel.app'
+    ],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true
+};
+
+// Usa la configuración de CORS
+app.use(cors(corsOptions));
 app.use(express.json());
 
 //Routes
