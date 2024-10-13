@@ -15,9 +15,12 @@
 
 .input-title {
   padding: 10px 10px;
-  margin-bottom: 5px;
   text-align: center;
   font-size: 20px;
+}
+
+.input-card {
+  margin-top: 5px;
 }
 
 @media(min-width: 768px) {

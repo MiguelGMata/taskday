@@ -12,17 +12,25 @@ const NavbarLabel = ({ isOpen, activeItem, onClick }) => {
         e.preventDefault();
         try {
             localStorage.removeItem('token');
+            setUserProfile([]); // Limpiar el perfil
             navigate('/');
         } catch (error) {
             console.error('Error during logout:', error);
         }
     };
 
-    useEffect(() => {
-        const fetchProfile = async () => {
-            const response = await profileUser();
-            setUserProfile(response);
+    const fetchProfile = async () => {
+        if (localStorage.getItem('token')) {
+            try {
+                const response = await profileUser();
+                setUserProfile(response);
+            } catch (error) {
+                console.error("Error al obtener el perfil del usuario:", error);
+            }
         }
+    }
+
+    useEffect(() => {
         fetchProfile();
     }, [])
 
@@ -79,7 +87,7 @@ const NavbarLabel = ({ isOpen, activeItem, onClick }) => {
                         </li>
 
                         <li className={activeItem === 'task' ? 'active' : ''} onClick={() => onClick('task')}>
-                            <Link to="/task">Tableaux</Link>
+                            <Link to="/task">Tableau</Link>
                         </li>
 
                         <li className='navbar-btn'>

@@ -13,6 +13,19 @@ export const createCard = async (listId, title) => {
         }
     }
 };
+// Obtener tarjetas 
+export const getCards = async (listId) => {
+    try {
+        const response = await axiosInstance.get(`/api/cards`);
+        return response.data;
+    } catch (error) {
+        if (error.response && error.response.data) {
+            throw new Error(error.response.data.message || 'Erreur lors de la récupération des cartes');
+        } else {
+            throw new Error('Une erreur est survenue. Veuillez réessayer plus tard.');
+        }
+    }
+};
 
 // Obtener tarjetas por ID de lista
 export const getCardsByList = async (listId) => {
@@ -43,9 +56,11 @@ export const getCardById = async (id) => {
 };
 
 // Actualizar una tarjeta por ID
-export const updateCard = async (id, title, description) => {
+export const updateCard = async (card) => {
+    const id = card.id;
+    const title = card.title;
     try {
-        const response = await axiosInstance.put(`/api/cards/${id}`, { title, description });
+        const response = await axiosInstance.put(`/api/cards/${id}`, { title });
         return response.data;
     } catch (error) {
         if (error.response && error.response.data) {

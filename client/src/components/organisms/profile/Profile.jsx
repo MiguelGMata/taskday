@@ -8,12 +8,16 @@ import Card from "../../atoms/card/Card";
 import Label from '../../atoms/label/Label';
 import Input from '../../atoms/input/Input';
 import Button from '../../atoms/button/Button';
+import Modal from '../../atoms/modal/Modal';
+import AddTitleTask from '../../molecules/titleTask/AddTitleTask';
 import './profile.css';
+
 
 
 const Profile = () => {
     const [userProfile, setUserProfile] = useState([]);
     const [taskByUser, setTaskByUser] = useState([]);
+    const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
 
     const handleDelete = async (id) => {
@@ -42,7 +46,13 @@ const Profile = () => {
         }
         fetchProfile();
     }, [])
-
+    const openModal = () => {
+        setShowModal(true);
+    };
+    const closeModal = () => {
+        setShowModal(false);
+        navigate('/task')
+    };
 
     return (
         <section className="profile-content">
@@ -77,7 +87,7 @@ const Profile = () => {
                         placeholder={userProfile.lastName}
                         defaultValue=""
                     />
-                    <Label text="Email" className="label-profile" />
+                    <Label text="E-mail" className="label-profile" />
                     <Input
                         type="text"
                         name="email"
@@ -87,21 +97,24 @@ const Profile = () => {
                 </Card>
 
                 <Card className="profile-card">
-                    <Title className="title">Vous tableaux</Title>
+                    <Title className="title">Votre tableau</Title>
                     {taskByUser.length > 0 ?
                         taskByUser.map((task) =>
-                            <ul key={task.id}>
-                                <Card>
+                            <div className="profile-card-block">
+                                <Card key={task.id} className="profile-card-ul">
                                     <li>{task.title}</li>
                                     <Button className="button-icon" text={<FaTrashAlt onClick={() => handleDelete(task.id)} />} />
                                 </Card>
-                            </ul>
+
+                                <Button text="Accéder au tableau" className="button-card" onClick={() => navigate('/task')} />
+                            </div>
                         )
                         :
                         <Card>
                             Vous n'avez pas de tableaux ajoutés !
+                            <Button text="+ Ajouter" className="button-card" onClick={() => navigate('/task')} />
                         </Card>}
-                    <Button text="+ Ajouter" className="button-card" onClick={() => navigate('/task')} />
+
                 </Card>
             </div>
         </section>

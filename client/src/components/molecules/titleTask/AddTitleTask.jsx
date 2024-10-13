@@ -3,13 +3,17 @@ import { createTask, getTaskById, updateTask, getTasksByUser } from '../../servi
 import { FaTrashAlt, FaEdit, FaCheck, FaUndoAlt } from 'react-icons/fa';
 import Input from '../../atoms/input/Input';
 import Button from '../../atoms/button/Button';
+import Modal from '../../atoms/modal/Modal';
+import MessageModal from '../../atoms/modal/MessageModal';
 import './addTitle.css';
 
 const AddTitleTask = ({ taskId }) => {
     const [title, setTitle] = useState("");
+    const [titles, setTitles] = useState("");
     const [idTask, setIdTask] = useState("");
     const [isEditing, setIsEditing] = useState(false);
-
+    const [showModal, setShowModal] = useState(false);
+    const [error, setError] = useState(false);
 
     const handleInputChange = (e) => {
         setTitle(e.target.value);
@@ -22,6 +26,7 @@ const AddTitleTask = ({ taskId }) => {
                 // Si estamos editando, actualizar la tarea
                 await updateTask(idTask, { title });
                 const task = await getTaskById(idTask);
+
                 setTitle(task.title);
                 setIsEditing(true);
             } else {
@@ -30,10 +35,12 @@ const AddTitleTask = ({ taskId }) => {
                 const task = await getTaskById(idTask);
                 setTitle(task[0].title);
                 setIsEditing(false);
+                window.location.reload();
             }
 
         } catch (error) {
-            console.error("erreur lors du chargement d'une tâche:", error);
+            setError(error.message);
+            setShowModal(true);
         }
     };
 
@@ -62,17 +69,20 @@ const AddTitleTask = ({ taskId }) => {
     }, [taskId]);
 
     return (
-        <form className='add-title-content' onSubmit={handleSubmit}>
-            <Input
-                type="text"
-                name="title"
-                placeholder={title || "Ajouter un titre"}
-                value={title || ""}
-                onChange={handleInputChange}
-                className="input-title"
-            />
-            <Button text={isEditing && title ? <FaUndoAlt /> : <FaCheck />} className="button-icon" />
-        </form>
+        <div>
+            {showModal && <MessageModal message={error} onClose={() => setShowModal(false)} />}
+            <form className='add-title-content' onSubmit={handleSubmit}>
+                <Input
+                    type="text"
+                    name="title"
+                    placeholder={title || "Ajouter un titre"}
+                    value={title || ""}
+                    onChange={handleInputChange}
+                    className="input-title"
+                />
+                <Button text={isEditing && title ? <FaUndoAlt /> : <FaCheck />} className="button-icon" />
+            </form>
+        </div>
     );
 };
 

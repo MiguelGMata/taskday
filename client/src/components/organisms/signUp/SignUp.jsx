@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signupUser } from '../../services/userServices';
 import FormSignUp from '../../molecules/form/FormSignUp';
-import Image from '../../atoms/image/Image';
 import "./signUp.css";
 
 const SignUp = () => {

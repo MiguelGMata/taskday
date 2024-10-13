@@ -5,6 +5,7 @@ import { getListsByTask } from '../../services/listServices';
 import BackgroundChanger from '../../molecules/background/Background';
 import AddTitleTask from '../../molecules/titleTask/AddTitleTask';
 import AddTitleList from '../../molecules/titleList/AddTitleList';
+import Modal from '../../atoms/modal/Modal';
 import './task.css';
 
 
@@ -14,11 +15,18 @@ const Task = () => {
     const [taskId, setTaskId] = useState(null);
     const [listId, setListId] = useState(null);
     const [cardId, setCardId] = useState(null);
+    const [showModal, setShowModal] = useState(false);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
-
+    const openModal = () => {
+        setShowModal(true);
+    };
+    const closeModal = () => {
+        setShowModal(false);
+        navigate('/task')
+    };
 
     // Primer useEffect para obtener el taskId del usuario
     useEffect(() => {
@@ -69,6 +77,11 @@ const Task = () => {
 
     return (
         <section className="section-task">
+            {showModal &&
+                <Modal isOpen={showModal} onClose={closeModal}>
+                    <AddTitleTask />
+                </Modal>
+            }
             <div className="block-task">
                 <button className="menu-toggle-btn" onClick={toggleMenu}>
                     {isOpen ? "Fermer" : "Fond d'écran"}

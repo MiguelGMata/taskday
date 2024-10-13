@@ -30,6 +30,7 @@ router.delete('/lists/:id', authenticateToken, listController.deleteList);
 
 //Card routes
 router.post('/cards', authenticateToken, cardController.createCard);
+router.get('/cards', authenticateToken, cardController.getCards);
 router.get('/lists/:listId/cards', authenticateToken, cardController.getCardsByList);
 router.get('/cards/:id', authenticateToken, cardController.getCardById);
 router.put('/cards/:id', authenticateToken, cardController.updateCard);

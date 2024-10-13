@@ -39,7 +39,9 @@ export const getListById = async (id) => {
     }
 };
 
-export const updateList = async (id, title) => {
+export const updateList = async (list) => {
+    const id = list.id
+    const title = list.title
     try {
         const response = await axiosInstance.put(`/api/lists/${id}`, { title });
         return response.data;

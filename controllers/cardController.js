@@ -28,6 +28,18 @@ exports.createCard = async (req, res) => {
     }
 };
 
+exports.getCards = async (req, res) => {
+    const { listId } = req.params;
+
+    try {
+        const cards = await models.Card.findAll();
+        res.json(cards);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Erreur lors de la récupération des cartes" });
+    }
+};
+
 
 exports.getCardsByList = async (req, res) => {
     const { listId } = req.params;

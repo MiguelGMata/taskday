@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { getCards } from '../../services/cardServices';
 import Button from '../../atoms/button/Button';
 import AddCard from './AddCard';
 import "./plusTask.css";
@@ -15,6 +16,7 @@ const PlusTask = ({ listId, cardId, idList, reFetchList, type }) => {
             reFetchList();
         }
     }
+
     return (
         <div className='plustask-content'>
             {open ? (

@@ -11,4 +11,17 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 0 5px;
+    transition: 0.5s ease-in-out;
+    gap: 5px;
+}
+
+.titleList-edit {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.titlecard-block:hover {
+    background-color: var(--grey);
 }
