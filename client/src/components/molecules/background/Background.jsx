@@ -4,6 +4,8 @@ import './background.css';
 
 const BackgroundChanger = ({ isOpen }) => {
     const [backgroundStyle, setBackgroundStyle] = useState({});
+    const [refresh, setRefresh] = useState(false);
+
     const backgrounds = [
         { type: 'color', value: '#0458d2' },
         { type: 'color', value: '#333' },
@@ -19,20 +21,20 @@ const BackgroundChanger = ({ isOpen }) => {
         { type: 'image', value: 'https://image.lexica.art/full_webp/05d57267-20cf-4dc3-acbd-572b4ea7fc36' },
     ];
 
-    // Fetch background from database on component mount
     useEffect(() => {
         const loadBackground = async () => {
             try {
                 const savedBackground = await fetchBackground();
-                console.log(savedBackground, 'Para verificar la respuesta'); // Para verificar la respuesta
+                console.log("Fetched Background:", savedBackground); // Verificar respuesta
 
                 if (savedBackground && savedBackground.value) {
                     const style = savedBackground.type === 'image'
                         ? { backgroundImage: `url(${savedBackground.value})` }
                         : { backgroundColor: savedBackground.value };
 
-                    console.log("Setting Background Style:", style);
+                    console.log("Setting Background Style:", style); // Verificar antes de aplicar el estilo
                     setBackgroundStyle(style);
+                    setRefresh(prev => !prev); // Forzar re-renderización
                 }
             } catch (error) {
                 console.error("Erreur lors du chargement de l'arrière-plan :", error);
