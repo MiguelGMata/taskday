@@ -58,3 +58,4 @@ app.listen(PORT, () => {
 
 // Exportar configuración
 module.exports = sequelize;
+
