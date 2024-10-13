@@ -100,9 +100,9 @@ const Profile = () => {
                     <Title className="title">Votre tableau</Title>
                     {taskByUser.length > 0 ?
                         taskByUser.map((task) =>
-                            <div className="profile-card-block">
-                                <Card key={task.id} className="profile-card-ul">
-                                    <li>{task.title}</li>
+                            <div key={task.id} className="profile-card-block">
+                                <Card className="profile-card-ul">
+                                    {task.title}
                                     <Button className="button-icon" text={<FaTrashAlt onClick={() => handleDelete(task.id)} />} />
                                 </Card>
 
